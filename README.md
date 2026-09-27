@@ -1,29 +1,29 @@
 # CoastLens
 
-**Before a storm, a council knows the weather. It doesn't know which stretch of its own coast needs attention first. CoastLens answers that question.**
+**Before a storm, a council knows the weather. It does not know which stretch of its own coast needs attention first. CoastLens answers that, 250 metres at a time.**
 
 ![CoastLens](screenshot.jpg)
 
-## What it does
+## Why I built it
 
-- Splits the County Wexford coast into 250 m stretches and keeps a baseline for each one.
-- Turns historical or forecast storm conditions into a likely impact, stretch by stretch, hour by hour.
-- Carries those watch areas into a short, ranked inspection list, so limited crews go where the evidence points first.
-- Uses Storm Kathleen (April 2024) as its benchmark, so the method can be checked against a real event and proven wrong.
-- Keeps people in charge. AI agents keep the evidence current. A person approves anything that leaves the system. Outputs are operational, never engineering advice.
+My entry into the TechIreland National AI Challenge 2026, with teammates Eddie Heffernan and Eduard Dreyer (Team Sunny SouthEast). Wexford's coast takes a beating most winters. Councils get broad weather and marine warnings, then have to decide where a handful of crews go first. The evidence to answer that exists, but it is scattered across agencies, formats and decades. We set out to show that AI agents can gather it, and that a council can still trust the answer, because the AI never touches the physics.
 
-## How it was built
+## What's under the hood
 
-Built by a team of three in about two weeks for the TechIreland National AI Challenge 2026, with AI coding agents throughout. A deterministic engine owns the physics. AI agents keep the evidence record current. The interface labels what is measured and what is modelled.
+- **250 m coastal stretches.** The County Wexford coast is split into short stretches, each with its own baseline, so an alert points at a place a crew can drive to.
+- **A deterministic engine owns the physics.** Published coastal equations (Stockdon wave runup, the Sallenger storm-impact scale) name the likely impact on each stretch, hour by hour: swash, collision, overwash or inundation.
+- **The language model never does the maths.** It cannot compute, change or retype a number. It writes the briefing from a locked set of values the engine hands it.
+- **AI agents keep the evidence current.** They work through agency reports, survey data and storm records, and turn them into a source register the engine can cite.
+- **Measured versus modelled, on every value.** Observations and modelled proxies are labelled differently. When the evidence does not pass the gate, the engine returns no result rather than a guess.
+- **A person approves what leaves.** Outputs are operational, such as where to inspect first. Never engineering advice.
+- **Storm Kathleen is the benchmark.** A real event from April 2024 that the method can be checked against and proven wrong. The Kathleen scenario is labelled provisional and is not field validated.
 
-Stack: Python engine, browser-based map console, Vercel. It is a prototype, and it says so.
+## Where it stands
 
-## See it live
-
-- [coastlens.ie](https://coastlens.ie)
+A working prototype, and it says so. Live at [coastlens.ie](https://coastlens.ie).
 
 Source: private.
 
 ---
 
-Built by Team Sunny SouthEast: Eddie Heffernan, Eduard Dreyer and John Robinson
+Team Sunny SouthEast: Eddie Heffernan, Eduard Dreyer and John Robinson
